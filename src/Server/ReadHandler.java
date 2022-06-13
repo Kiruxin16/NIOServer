@@ -51,6 +51,7 @@ public class ReadHandler {
             int read =channel.read(buffer);
             if(read<0){
                 channel.close();
+                handPool.remove(this);
                 return;
             }
             if(read==0){
